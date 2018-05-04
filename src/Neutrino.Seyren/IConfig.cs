@@ -1,11 +1,23 @@
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
 namespace Neutrino.Seyren
 {
     public interface IConfig
     {
-        // GET - /config
-        IConfig GetConfig();
+        Task<SeyrenConfig> GetConfig();
+    }
 
-        // GET - /api/metrics/{target}/total
-        int GetMetricCount(string target);  
+    public partial class SeyrenClient : IConfig
+    {
+        public IConfig Config => (IConfig) this;
+
+        // GET - /api/config
+        async Task<SeyrenConfig> IConfig.GetConfig()
+        {
+            string serialisedConfig = await this.httpClient.GetStringAsync("/api/config");
+
+            return JsonConvert.DeserializeObject<SeyrenConfig>(serialisedConfig);
+        }
     }
 }
