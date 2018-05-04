@@ -75,7 +75,7 @@ namespace Neutrino.Seyren
             string name, 
             FieldRegex[] fieldRegexes)
         {
-            StringBuilder queryString = new StringBuilder("?");
+            StringBuilder queryString = new StringBuilder();
 
             if ( states != null )
             {
