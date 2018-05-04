@@ -25,6 +25,7 @@ namespace Neutrino.Seyren
     {
         public IAlerts Alerts => (IAlerts) this;
 
+        // /api/checks/{checkId}/alerts
         async Task IAlerts.Delete(string checkId)
         {
             HttpResponseMessage response = await this.httpClient.DeleteAsync($"/api/checks/{checkId}/alerts");
@@ -32,6 +33,7 @@ namespace Neutrino.Seyren
             response.EnsureSuccessStatusCode();
         }
 
+        // /api/checks/{checkId}/alerts
         async Task IAlerts.Delete(string checkId, DateTimeOffset before)
         {
             HttpResponseMessage response = await this.httpClient.DeleteAsync($"/api/checks/{checkId}/alerts?before={before:o}");
@@ -39,6 +41,7 @@ namespace Neutrino.Seyren
             response.EnsureSuccessStatusCode();
         }
 
+        // /api/alerts
         async Task<SeyrenResponse<Alert>> IAlerts.GetAll()
         {
             string serialisedResponse = await this.httpClient.GetStringAsync($"/api/alerts");
@@ -46,7 +49,7 @@ namespace Neutrino.Seyren
             return JsonConvert.DeserializeObject<SeyrenResponse<Alert>>(serialisedResponse);
         }
 
-        /// /api/alerts
+        // /api/alerts
         async Task<SeyrenResponse<Alert>> IAlerts.GetAll(int start, int items)
         {
             string serialisedResponse = await this.httpClient.GetStringAsync($"/api/alerts?start={start}&items={items}");
