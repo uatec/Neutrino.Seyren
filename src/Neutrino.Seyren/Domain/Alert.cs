@@ -31,5 +31,7 @@ namespace Neutrino.Seyren.Domain
         
         [DataMember(Name = "timestamp")]
         public DateTime Timestamp { get; set; }
+
+        // TODO : TargetHash
     }
 }
