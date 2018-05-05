@@ -45,10 +45,10 @@ namespace Neutrino.Seyren.Domain
         public bool IgnoreOk { get; set; }
 
         [DataMember(Name = "fromTime")]
-        public DateTime FromTime { get; set; } // TODO : validate against java.time.LocalTime
+        public string FromTime { get; set; } 
 
         [DataMember(Name = "toTime")]
-        public DateTime ToTime { get; set; }
+        public string ToTime { get; set; }
 
         [DataMember(Name = "enabled")]
         public bool Enabled { get; set; }
