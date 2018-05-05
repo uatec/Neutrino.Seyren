@@ -10,7 +10,7 @@ Seyren is an alerting dashboard for graphite which supports many different notif
 
 Checks and subscriptions are managed via the [Seyren API](https://github.com/scobal/seyren/blob/master/API.md). 
 
-This library provides a .Net implementation of that API targetting .NET Standard 1.3 and later and .NET framework 4.6.1 and later.
+This library provides a .Net implementation of that API targetting .NET Standard 1.3 and later.
 
 ### Installation
 

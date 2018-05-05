@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Version>1.0.1</Version>
-    <TargetFrameworks>netstandard1.3;net461</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3</TargetFrameworks>
     <OutputType>Library</OutputType>
     <PackageId>Neutrino.Seyren</PackageId>
     <RootNamespace>Neutrino.Seyren</RootNamespace>
