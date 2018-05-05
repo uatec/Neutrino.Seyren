@@ -25,19 +25,67 @@ dotnet add package Neutrino.Seyren
 ### Creating Checks
 
 ```c#
-pending
+var client = new SeyrenClient(new HttpClient
+{
+    BaseAddress = new Uri("http://localhost:8080")
+});
+
+Check newCheck = await client.Checks.CreateAsync(new Check
+{
+    Name = "My CPU Check",
+    Description = "Make sure my CPU is not catching fire.",
+    Target = "movingMedian(stats.gauges.server_001.cpu, '5m')",
+    Warn = 60,
+    Error = 80,
+    Enabled = true,
+    From = "0000",
+    Until = "2359"
+});
+
+Console.WriteLine(newCheck.Id);
 ```
 
 ### Adding Subscriptions
 
 ```c#
-pending
+var client = new SeyrenClient(new HttpClient
+{
+    BaseAddress = new Uri("http://localhost:8080")
+});
+
+Subscription subscription = await client.Subscriptions.Create(checkId, new Subscription
+{
+    Target = "test@gmail.com",
+    Type = SubscriptionType.Email,
+    IgnoreWarn = false,
+    IgnoreError = false,
+    IgnoreOk = false,
+    FromTime = "0800",
+    ToTime = "1700",
+    EnabledOnMonday = true,
+    EnabledOnTuesday = true,
+    EnabledOnWednesday = true,
+    EnabledOnThursday = true,
+    EnabledOnFriday = true
+});
+
+Console.WriteLine(subscription.Id);
 ```
 
 ### Getting Alerts
 
 ```c#
-pending
+var client = new SeyrenClient(new HttpClient
+{
+    BaseAddress = new Uri("http://localhost:8080")
+});
+
+SeyrenResponse<Alert> alerts = await client.Alerts.GetByCheckId(checkId);
+
+foreach ( Alert alert in alerts.Values )
+{
+    Console.WriteLine($"[{alert.Timestamp:o}] {alert.Target} {Enum.GetName(typeof(AlertType), alert.ToType)}");
+}
 ```
 
 ## Feedback
