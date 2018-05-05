@@ -1,8 +1,4 @@
-version: '0.0.{build}'
 image: Visual Studio 2017
-branches:
-  only:
-  - master
 init: 
   # Good practice, because Windows
   - cmd: git config --global core.autocrlf true
@@ -19,3 +15,5 @@ deploy:
     secure: fGKXQRW8Nmbb213zBl818QwOd97xFOlgirR/7E719uUa5fFK5joHythNrdRHHhhR
   skip_symbols: false
   artifact: /.*\.nupkg/
+  on:
+    branch: master

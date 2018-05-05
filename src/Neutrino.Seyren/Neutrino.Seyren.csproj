@@ -1,7 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.1</Version>
+    <TargetFrameworks>netstandard1.3;net461</TargetFrameworks>
+    <OutputType>Library</OutputType>
+    <PackageId>Neutrino.Seyren</PackageId>
+    <RootNamespace>Neutrino.Seyren</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Robert Stiff</Authors>
+    <Company>HiDef Software Ltd.</Company>
+    <Copyright>Copyright © HiDef Software Ltd. 2018</Copyright>
+    <AssemblyTitle>Neutrino Seyren API Client</AssemblyTitle>
+    <Description>A .Net client for the Seyren alerting platform.</Description>
+    <Summary>A .Net client for the Seyren alerting platform.</Summary>
   </PropertyGroup>
 
   <ItemGroup>
