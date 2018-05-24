@@ -12,11 +12,11 @@ namespace Neutrino.Seyren.Domain
         {
             if ( reader.TokenType == JsonToken.Integer )
             {
-                return DateTime.FromBinary((long) reader.ReadAsInt32());
+                return DateTimeOffset.FromUnixTimeMilliseconds((long) reader.Value);
             }
             else if ( reader.TokenType == JsonToken.String )
             {
-                return DateTime.Parse(reader.ReadAsString());
+                return DateTime.Parse((string) reader.Value);
             }
 
             throw new InvalidOperationException($"Unable to parse ${reader.ReadAsString()} to DateTiime.");
