@@ -1,11 +1,12 @@
-image: Visual Studio 2017
+version: '1.0.{build}'
+image: Ubuntu
 init: 
   # Good practice, because Windows
-  - cmd: git config --global core.autocrlf true
+  - git config --global core.autocrlf true
 before_build:
-  - cmd: dotnet --info
+  - dotnet --info
 build_script:
-  - cmd: dotnet pack src/Neutrino.Seyren/Neutrino.Seyren.csproj --include-symbols /p:Version=$APPVEYOR_BUILD_VERSION -o ./
+  - dotnet pack src/Neutrino.Seyren/Neutrino.Seyren.csproj --include-symbols /p:Version=$APPVEYOR_BUILD_VERSION -o ./
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
