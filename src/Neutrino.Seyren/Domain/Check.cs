@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 namespace Neutrino.Seyren.Domain
 {
@@ -43,6 +44,7 @@ namespace Neutrino.Seyren.Domain
         public AlertType State { get; set; }
 
         [DataMember(Name = "lastCheck")]
+        [JsonConverter(typeof(SeyrenDateConverter))]
         public DateTime LastCheck { get; set; }
 
         [DataMember(Name = "subscriptions")]

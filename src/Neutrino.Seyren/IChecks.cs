@@ -37,7 +37,7 @@ namespace Neutrino.Seyren
     /// </summary>
     public partial class SeyrenClient : IChecks
     {
-        public IChecks Checks => (IChecks) this;
+        public IChecks Checks => this;
 
         // POST /api/checks
         async Task<Check> IChecks.CreateAsync(Check check)
