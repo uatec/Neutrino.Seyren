@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Version>1.0.1</Version>
-    <TargetFrameworks>netstandard1.3</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <PackageId>Neutrino.Seyren</PackageId>
     <RootNamespace>Neutrino.Seyren</RootNamespace>
@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
 </Project>
